@@ -1,17 +1,24 @@
 
 public class consecutiveOdd {
+	
+	static int target = 160701;
+	
 	public static void main(String[] args){
-		int target = 160701;
-		boolean found = false;
 		
-		for(int i = 1; i < target; i++){
-			if(i + (i+2) + (i+4) == target){
-				System.out.print(i + " + " + (i+2) + " + " + (i+4));
-				found = true;
-			}
+		int answer = -1;
+		for (int k = 1;; k++) {
+		    int i = target / k - k + 1;
+		    if (i <= 0) {
+		        break;
+		    }
+		    // Check if calculated i, can be the start of 'odd' sequence.
+		    if (target % k == 0 && i % 2 == 1) {
+		        answer = k;
+		    }
 		}
-		if(!found){
-			System.out.println("Sorry none");
-		}
+		
+		System.out.print(answer); 
+		
 	}
+	
 }
